@@ -1,16 +1,17 @@
-import { FaGlobe, FaGithub, FaLinkedin, FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa';
+import { FaGlobe, FaGithub, FaLinkedin, FaBars, FaTimes, FaWhatsapp, FaSun, FaMoon } from 'react-icons/fa';
 
 import { useState, useEffect } from 'react';
 import type { Language, NavContent } from '@/types';
-
 
 interface NavbarProps {
   content: NavContent;
   currentLanguage: Language;
   setLanguage: (lang: Language) => void;
+  darkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode, toggleDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage }) => {
             <FaGlobe />
           </button>
          
-          <span className="text-2xl font-bold text-indigo-400"></span>
+          <span className="text-2xl font-bold text-indigo-400">Regil Daniel</span>
         </div>
         {/* Hamburger menu button for small screens */}
         <button
@@ -58,6 +59,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage }) => {
           <li><a href="#contact" className="block px-4 py-2 hover:text-indigo-400 transition">Contact</a></li>
         </ul>
         <div className="hidden md:flex gap-4 items-center">
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="text-gray-400 hover:text-indigo-400 transition text-xl"
+            aria-label="Toggle Dark Mode"
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
           {/* Social Icons */}
           <a
             href="https://github.com/regil2019"
@@ -94,3 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage }) => {
 };
 
 export default Navbar;
+
+
+
+

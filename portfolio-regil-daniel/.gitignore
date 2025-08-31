@@ -25,3 +25,5 @@ src/utils/emailjs.ts
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
