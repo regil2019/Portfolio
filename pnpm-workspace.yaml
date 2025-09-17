@@ -1,3 +1,6 @@
+packages:
+  - 'portfolio-regil-daniel/**'
+
 ignoredBuiltDependencies:
   - esbuild
 
